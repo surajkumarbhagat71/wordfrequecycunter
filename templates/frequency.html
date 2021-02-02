@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+
+
+<div class="container mt-4">
+    {% load crispy_forms_tags %}
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{% url 'result'  %}" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                     <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block">
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
